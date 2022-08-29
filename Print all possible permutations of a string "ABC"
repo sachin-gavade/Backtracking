@@ -1,0 +1,18 @@
+public class Recursion2 {
+    public static void printPermutations(String str, String perm, int idx) { // we will add all possible combinations one by one in "perm"
+        if(str.length() == 0) {  // Base case
+            System.out.println(perm);
+            return;
+        }
+
+        for(int i=0; i<str.length(); i++) {
+            char currChar = str.charAt(i); 
+            String newString = str.substring(0,i) + str.substring(i+1);
+            printPermutations(newString, perm + currChar, idx+1);
+        }
+    }
+    public static void main(String[] args) {
+        String str = "ABC";
+        printPermutations(str, "", 0);
+    }
+}
